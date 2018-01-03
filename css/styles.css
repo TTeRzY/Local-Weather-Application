@@ -24,11 +24,12 @@ body{
 }
 h1{
    color: #fff;
+   font-weight: 900;
 }
 #location{
-  font-size: 28px;
+  font-size: 20px;
   margin: 20px;
-  font-weight: 900;
+  font-weight: 500;
   color: #fff;
 }
 
