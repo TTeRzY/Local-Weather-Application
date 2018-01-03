@@ -1,0 +1,50 @@
+html{
+  height: 100%;
+}
+.box{
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 54em;
+}
+body{
+  background-color: #f2f2f2;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main-content{
+  text-align: center;
+  font-family: Roboto;
+  padding: 60px;
+  background-color: #2df;
+  opacity: 0.915;
+  flex: none;
+  max-width: 60%;
+}
+h1{
+   color: #fff;
+}
+#location{
+  font-size: 28px;
+  margin: 20px;
+  font-weight: 900;
+  color: #fff;
+}
+
+#weather{
+  font-size: 16px;
+  color: #fff;
+}
+
+button{
+  margin: 20px;
+  cursor: pointer;
+  
+}
+
+img{
+  min-width: 100px; 
+  height: auto;
+  opacity: 4;
+}
