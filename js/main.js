@@ -42,6 +42,12 @@ if(navigator.geolocation){
                                 "url('https://cdn.allwallpaper.in/wallpapers/1152x768/4324/night-rain-skies-water-weather-1152x768-wallpaper.jpg')";
                         }
 
+                        else{
+
+                            document.body.style.backgroundImage =
+                                "url('https://www.wur.nl/upload_mm/8/d/2/b223d9fb-1217-432f-8e52-7bb4908d4fba_wolken_lucht_shutterstock_193491221.jpg')";
+                        }
+
                       //Add Event listener to change from celsius to fahrenheit
                       var graduses = "C";
                       document.getElementById("change").addEventListener("click", function(){
