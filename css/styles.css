@@ -17,14 +17,15 @@ body{
   text-align: center;
   font-family: Roboto;
   padding: 60px;
-  background-color: #2df;
-  opacity: 0.915;
+  background-color: rgba(0,0,0,.6);
   flex: none;
-  max-width: 60%;
+  max-width: 100%;
 }
 h1{
    color: #fff;
-   font-weight: 900;
+   font-weight: 500;
+  font-size: 70px;
+  margin-bottom: 30px;
 }
 #location{
   font-size: 20px;
@@ -33,19 +34,41 @@ h1{
   color: #fff;
 }
 
-#weather{
-  font-size: 16px;
+.weather{
+  display: flex;
+  justify-content: center;
+}
+
+#icon{
+
+}
+
+#degrees{
+  font-size: 26px;
   color: #fff;
 }
+
+
 
 button{
   margin: 20px;
   cursor: pointer;
-  
+  background-color: rgba(76,174,76,.65);
+  color: #ffffff;
 }
 
-img{
-  min-width: 100px; 
-  height: auto;
-  opacity: 4;
+
+ul{
+  list-style-type: none;
+  padding: 20px;
 }
+
+li{
+  background-color: rgba(76,174,76,.65);
+  color: #fff;
+  margin: 20px;
+  float: left;
+  width: 200px;
+  padding: 10px;
+}
+

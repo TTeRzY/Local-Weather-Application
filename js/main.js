@@ -15,16 +15,30 @@ if(navigator.geolocation){
             {
                 if (results[0]) {
                     var city = results[0].address_components[4].short_name;
-                    var country = results[0].address_components[5].short_name;
+                    var country = results[0].address_components[5].long_name;
+
                     $("#location")
-                        .html("Weather and forecasts in: " + city + ", " + country);
+                        .html("Weather and forecasts in " + city + ", " + country);
 
                     var api = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lng + '&appid=6d239f6a4b210f0cdaf9be0e8fe81560';
                     $.getJSON(api, function(data) {
                         var weather_icon = data.weather[0].icon;
                         var weather = data.weather[0].main;
                         var degrees =  (data.main.temp - 273.15);
-                        $("#weather").html("<img src='https://openweathermap.org/img/w/" + weather_icon + ".png' alt='Icon depicting current weather.'><br>" + weather + "<br>" + degrees + " °C");
+                        var countryCode = data.sys.country;
+
+                        console.log(data.sys.dt_txt);
+                        console.log(data);
+                        console.log(data.list);
+
+                        $("#icon").html("<img src='https://openweathermap.org/img/w/" + weather_icon + ".png' alt='Icon depicting current weather.'> ");
+                        $("#degrees").html(degrees + " °C");
+
+                        $("#description").html(data.weather[0].main);
+                        $("#humidity").html("Humidity: " + data.main.humidity + " %");
+                        $("#pressure").html("Pressure: " + data.main.pressure + " mb");
+                        $("#wind-speed").html("Wind speed: " + data.wind.speed + " km/h");
+
 
                         if(weather.toLowerCase() === "clear"){
                             document.body.style.backgroundImage =
@@ -49,19 +63,22 @@ if(navigator.geolocation){
                         }
 
                       //Add Event listener to change from celsius to fahrenheit
-                      var graduses = "C";
-                      document.getElementById("change").addEventListener("click", function(){
-                        if(graduses == "C"){
-                            var fahr =  Math.floor(1.8 *(data.main.temp - 273) + 32);
-                            
-                                $("#weather").html("<img src='https://openweathermap.org/img/w/" + weather_icon + ".png' alt='Icon depicting current weather.'><br>" + weather + "<br>" + fahr + " °F");
-                              graduses = "F";
-                           
+                        var temp = data.main.temp - 273.15;
+                        var fahr =  Math.floor(1.8 *(data.main.temp - 273) + 32);
 
-                        }else{
+                        console.log("temp is : " + temp);
+                        console.log("fahr is : " + fahr);
+                        console.log("deg is : " + degrees);
+                      document.getElementById("change").addEventListener("click", function(){
+                        if(degrees == temp){
+                                $("#degrees").html(fahr + " °F");
+
+                                temp = fahr;
+
+                        }if(degrees !== temp){
                             document.getElementById("change").addEventListener("click", function(){
-                                $("#weather").html("<img src='https://openweathermap.org/img/w/" + weather_icon + ".png' alt='Icon depicting current weather.'><br>" + weather + "<br>" + degrees + " °C");                             
-graduses = "C";
+                                $("#degrees").html(degrees + " °C");
+                                temp = degrees;
                             });
                         }
                          });
@@ -76,3 +93,5 @@ graduses = "C";
             });
     });
 }
+
+
