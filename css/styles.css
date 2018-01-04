@@ -48,7 +48,10 @@ h1{
   color: #fff;
 }
 
-
+span{
+  font-size: 26px;
+  color: #fff;
+}
 
 button{
   margin: 20px;

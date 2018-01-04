@@ -25,11 +25,7 @@ if(navigator.geolocation){
                         var weather_icon = data.weather[0].icon;
                         var weather = data.weather[0].main;
                         var degrees =  (data.main.temp - 273.15);
-                        var countryCode = data.sys.country;
 
-                        console.log(data.sys.dt_txt);
-                        console.log(data);
-                        console.log(data.list);
 
                         $("#icon").html("<img src='https://openweathermap.org/img/w/" + weather_icon + ".png' alt='Icon depicting current weather.'> ");
                         $("#degrees").html(degrees + " °C");
@@ -62,36 +58,34 @@ if(navigator.geolocation){
                                 "url('https://www.wur.nl/upload_mm/8/d/2/b223d9fb-1217-432f-8e52-7bb4908d4fba_wolken_lucht_shutterstock_193491221.jpg')";
                         }
 
-                      //Add Event listener to change from celsius to fahrenheit
-                        var temp = data.main.temp - 273.15;
-                        var fahr =  Math.floor(1.8 *(data.main.temp - 273) + 32);
+                        //Add Event listener to change from celsius to fahrenheit
+                        var temp = degrees;
+                        var fahr =  Math.floor(1.8 *(data.main.temp - 273.15) + 32);
 
-                        console.log("temp is : " + temp);
-                        console.log("fahr is : " + fahr);
-                        console.log("deg is : " + degrees);
-                      document.getElementById("change").addEventListener("click", function(){
-                        if(degrees == temp){
-                                $("#degrees").html(fahr + " °F");
+                        document.getElementById("change").addEventListener("click", function(){
+                            if(degrees == temp){
 
-                                temp = fahr;
+                                degrees = Math.round(1.8 * degrees + 32);
+                                $("#degrees").html(degrees + " °F");
 
-                        }if(degrees !== temp){
-                            document.getElementById("change").addEventListener("click", function(){
+                            }else{
+                                degrees = Math.round((degrees - 32) / 1.8);
                                 $("#degrees").html(degrees + " °C");
-                                temp = degrees;
-                            });
-                        }
-                         });
+
+
+                            }
+
+                        });
+
+
                     });
 
                 }
-            }    
-                else
-                {
-                    alert("Geocoder failed due to: " + status);
-                }
-            });
+            }
+            else
+            {
+                alert("Geocoder failed due to: " + status);
+            }
+        });
     });
 }
-
-
