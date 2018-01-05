@@ -30,7 +30,7 @@ if(navigator.geolocation){
                             .html("Weather and forecasts in " + city + ", " + country);
 
                         $("#icon").html("<img src='https://openweathermap.org/img/w/" + weather_icon + ".png' alt='Icon depicting current weather.'> ");
-                        $("#degrees").html(degrees + " °C");
+                        $("#degrees").html(Math.round(degrees) + " °C");
 
                         $("#description").html(data.weather[0].main);
                         $("#humidity").html("Humidity: " + data.main.humidity + " %");
