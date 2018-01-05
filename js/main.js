@@ -62,6 +62,7 @@ if(navigator.geolocation){
                         var temp = degrees;
                         var fahr =  Math.floor(1.8 *(data.main.temp - 273.15) + 32);
 
+
                         document.getElementById("change").addEventListener("click", function(){
                             if(degrees == temp){
 
@@ -77,6 +78,62 @@ if(navigator.geolocation){
 
                         });
 
+
+                    });
+
+
+                    // 5 Days Weather
+
+                    var fiveDays = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lng + '&appid=6d239f6a4b210f0cdaf9be0e8fe81560';
+
+
+                    $.getJSON(fiveDays, function(getDays){
+                        var firstDay = getDays.list[0].main.temp;
+                        var firstHour = getDays.list[0].dt_txt.split('').slice(11,16).join('');
+                        var firstWeather = getDays.list[0].weather[0].icon;
+                        var secondDay = getDays.list[1].main.temp;
+                        var secondHour = getDays.list[1].dt_txt.split('').slice(11,16).join('');
+                        var secondWeather = getDays.list[1].weather[0].icon;
+                        var thirdDay = getDays.list[2].main.temp;
+                        var thirdHour = getDays.list[2].dt_txt.split('').slice(11,16).join('');
+                        var thirdWeather = getDays.list[2].weather[0].icon;
+                        var fourthDay = getDays.list[3].main.temp;
+                        var fourthHour = getDays.list[3].dt_txt.split('').slice(11,16).join('');
+                        var fourthWeather = getDays.list[3].weather[0].icon;
+                        var fifthDay = getDays.list[4].main.temp;
+                        var fifthHour = getDays.list[4].dt_txt.split('').slice(11,16).join('');
+                        var fifthWeather = getDays.list[4].weather[0].icon;
+                        var sixtDat = getDays.list[5].main.temp;
+                        var sixthHour = getDays.list[5].dt_txt.split('').slice(11,16).join('');
+                        var sixthWeather = getDays.list[5].weather[0].icon;
+                        var seventhDay = getDays.list[6].main.temp;
+                        var seventhHour = getDays.list[6].dt_txt.split('').slice(11,16).join('');
+                        var seventhWeather = getDays.list[6].weather[0].icon;
+                        var eightDay = getDays.list[7].main.temp;
+                        var eightHour = getDays.list[7].dt_txt.split('').slice(11,16).join('');
+                        var eightWeather = getDays.list[7].weather[0].icon;
+                        var ninthDay = getDays.list[8].main.temp;
+                        var ninthHour = getDays.list[8].dt_txt.split('').slice(11,16).join('');
+                        var ninthWeather = getDays.list[8].weather[0].icon;
+
+                        $("#firstHour")
+                            .html(firstHour + "<br>" + "<img src='https://openweathermap.org/img/w/" + firstWeather + ".png' alt='Icon depicting current weather.'>"+ (Math.round(firstDay - 273.15)) + " °C");
+                        $("#secondHour")
+                            .html(secondHour+ "<br>" + "<img src='https://openweathermap.org/img/w/" + secondWeather + ".png' alt='Icon depicting current weather.'>" + (Math.round(secondDay - 273.15))+ " °C");
+                        $("#thirdHour")
+                            .html(thirdHour + "<br>" + "<img src='https://openweathermap.org/img/w/" + thirdWeather + ".png' alt='Icon depicting current weather.'>" + (Math.round(thirdDay - 273.15))+ " °C");
+                        $("#fourthHour")
+                            .html(fourthHour + "<br>" + "<img src='https://openweathermap.org/img/w/" + fourthWeather + ".png' alt='Icon depicting current weather.'>" + (Math.round(fourthDay - 273.15))+ " °C");
+                        $("#fifthHour")
+                            .html(fifthHour+ "<br>" + "<img src='https://openweathermap.org/img/w/" + fifthWeather + ".png' alt='Icon depicting current weather.'>" + (Math.round(fifthDay - 273.15))+ " °C");
+                        $("#sixthHour")
+                            .html(sixthHour + "<br>" + "<img src='https://openweathermap.org/img/w/" + sixthWeather + ".png' alt='Icon depicting current weather.'>" + (Math.round(sixtDat - 273.15))+ " °C");
+                        $("#seventhHour").html(seventhHour + "<br>" + "<img src='https://openweathermap.org/img/w/" + seventhWeather + ".png' alt='Icon depicting current weather.'>" + (Math.round(seventhDay - 273.15))+ " °C");
+
+                        $("#eightHour")
+                            .html(eightHour + "<br>" + "<img src='https://openweathermap.org/img/w/" + eightWeather + ".png' alt='Icon depicting current weather.'>" + (Math.round(eightDay - 273.15))+ " °C");
+                        $("#ninthHour")
+                            .html(ninthHour + "<br>" + "<img src='https://openweathermap.org/img/w/" + ninthWeather + ".png' alt='Icon depicting current weather.'>" + (Math.round(ninthDay - 273.15))+ " °C");
 
                     });
 

@@ -22,8 +22,8 @@ body{
   max-width: 100%;
 }
 h1{
-   color: #fff;
-   font-weight: 500;
+  color: #fff;
+  font-weight: 500;
   font-size: 70px;
   margin-bottom: 30px;
 }
@@ -48,15 +48,12 @@ h1{
   color: #fff;
 }
 
-span{
-  font-size: 26px;
-  color: #fff;
-}
+
 
 button{
   margin: 20px;
   cursor: pointer;
-  background-color: rgba(76,174,76,.65);
+  background-color: rgba(0,90,76,.65);
   color: #ffffff;
 }
 
@@ -66,12 +63,39 @@ ul{
   padding: 20px;
 }
 
-li{
-  background-color: rgba(76,174,76,.65);
+.more-info li{
+  background-color: rgba(0,30,76,.65);
   color: #fff;
   margin: 20px;
   float: left;
-  width: 200px;
+  width: 185px;
   padding: 10px;
 }
 
+h2{
+
+  font-size: 20px;
+  margin-top: 100px;
+  font-weight: 500;
+  color: #fff;
+}
+
+#daily-info{
+  font-family: Roboto;
+  max-width: 100%;
+  margin-top: 50px;
+
+}
+
+.daily-content li{
+  background-color: rgba(0,30,76,.65);
+  color: #fff;
+  margin: 20px;
+  float: left;
+  width: 60px;
+  padding: 10px;
+}
+
+.daily-content img{
+  width: 40px;
+}
