@@ -63,19 +63,20 @@ ul{
   padding: 20px;
 }
 
+.more-info{
+  display: flex;
+  justify-content: space-around;
+}
 .more-info li{
   background-color: rgba(0,30,76,.65);
   color: #fff;
-  margin: 20px;
   float: left;
   width: 185px;
   padding: 10px;
 }
 
 h2{
-
   font-size: 20px;
-  margin-top: 100px;
   font-weight: 500;
   color: #fff;
 }
@@ -83,7 +84,7 @@ h2{
 #daily-info{
   font-family: Roboto;
   max-width: 100%;
-  margin-top: 50px;
+  margin-top: 10px;
 
 }
 
@@ -98,4 +99,16 @@ h2{
 
 .daily-content img{
   width: 40px;
+}
+
+@media only screen and (max-width: 768px) {
+
+.more-info li{
+  flex-direction: column;
+}
+
+  h1{
+    font-size: 30px;
+  }
+
 }
