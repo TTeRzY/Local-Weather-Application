@@ -14,18 +14,20 @@ if(navigator.geolocation){
             if (status == google.maps.GeocoderStatus.OK)
             {
                 if (results[0]) {
-                    var city = results[0].address_components[4].short_name;
-                    var country = results[0].address_components[5].long_name;
 
-                    $("#location")
-                        .html("Weather and forecasts in " + city + ", " + country);
+
+
 
                     var api = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lng + '&appid=6d239f6a4b210f0cdaf9be0e8fe81560';
                     $.getJSON(api, function(data) {
                         var weather_icon = data.weather[0].icon;
                         var weather = data.weather[0].main;
                         var degrees =  (data.main.temp - 273.15);
+                        var city = data.name;
+                        var country = data.sys.country;
 
+                        $("#location")
+                            .html("Weather and forecasts in " + city + ", " + country);
 
                         $("#icon").html("<img src='https://openweathermap.org/img/w/" + weather_icon + ".png' alt='Icon depicting current weather.'> ");
                         $("#degrees").html(degrees + " °C");
